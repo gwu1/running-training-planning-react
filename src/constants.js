@@ -115,4 +115,4 @@ export const SPRINT_SPEED = 20 / 60;
 export const SPRINT_REST = 1.5;
 export const SPRINT_SETS_DEFAULT = 4;
 
-export const GOOGLE_MAPS_API_KEY = "AIzaSyBBpQ4KKE7WP2nn1f2U3b-osNnff7Cb7rI";
+export const GOOGLE_MAPS_API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
