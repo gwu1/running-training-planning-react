@@ -6,11 +6,12 @@ export const ROUTES = [
     description: "SCTC -> Sha Tin Sports Ground -> Twin Bridge -> SCTC",
     mapCenter: { lat: 22.387, lng: 114.203 },
     path: [
-      { lat: 22.387, lng: 114.203 }, // SCTC
-      { lat: 22.391, lng: 114.195 }, // Sports Institute
-      { lat: 22.385, lng: 114.188 }, // Sports Ground
-      { lat: 22.379, lng: 114.192 }, // Twin Bridge
-      { lat: 22.387, lng: 114.203 }  // Back to SCTC
+      { lat: 22.396810, lng: 114.201182 }, // SCTC
+      { lat: 22.392262, lng: 114.200203 }, // Sports Institute
+      { lat: 22.387512, lng: 114.197181 }, // Sports Ground
+      { lat: 22.402756, lng: 114.213578 }, // Twin Bridge
+      { lat: 22.392262, lng: 114.200203 }, // Sports Institute
+      { lat: 22.396810, lng: 114.201182 }  // Back to SCTC
     ],
     hasDrills: true,
     hasSprints: true,
@@ -26,10 +27,13 @@ export const ROUTES = [
     description: "SCTC -> Ma On Shan Promenade -> SCTC",
     mapCenter: { lat: 22.387, lng: 114.203 },
     path: [
-      { lat: 22.387, lng: 114.203 }, // SCTC
-      { lat: 22.391, lng: 114.195 }, // Sports Institute
-      { lat: 22.406, lng: 114.231 }, // Ma On Shan Promenade
-      { lat: 22.387, lng: 114.203 }  // Back to SCTC
+      { lat: 22.396810, lng: 114.201182 }, // SCTC
+      { lat: 22.392262, lng: 114.200203 }, // Sports Institute
+      { lat: 22.402756, lng: 114.213578 }, // Twin Bridge
+      { lat: 22.418101, lng: 114.223154 }, // Ma On Shan Promenade
+      { lat: 22.402756, lng: 114.213578 }, // Twin Bridge
+      { lat: 22.392262, lng: 114.200203 }, // Sports Institute
+      { lat: 22.396810, lng: 114.201182 }  // Back to SCTC
     ],
     hasDrills: false,
     hasSprints: false
@@ -41,10 +45,13 @@ export const ROUTES = [
     description: "SCTC -> Twin Bridge -> HK Science Park -> SCTC",
     mapCenter: { lat: 22.387, lng: 114.203 },
     path: [
-      { lat: 22.387, lng: 114.203 }, // SCTC
-      { lat: 22.379, lng: 114.192 }, // Twin Bridge
-      { lat: 22.426, lng: 114.209 }, // Science Park
-      { lat: 22.387, lng: 114.203 }  // Back to SCTC
+      { lat: 22.396810, lng: 114.201182 }, // SCTC
+      { lat: 22.392262, lng: 114.200203 }, // Sports Institute
+      { lat: 22.402756, lng: 114.213578 }, // Twin Bridge
+      { lat: 22.429442, lng: 114.209777}, // Science Park
+      { lat: 22.402756, lng: 114.213578 }, // Twin Bridge
+      { lat: 22.392262, lng: 114.200203 }, // Sports Institute
+      { lat: 22.396810, lng: 114.201182 }  // Back to SCTC
     ],
     hasDrills: false,
     hasSprints: false
@@ -56,9 +63,13 @@ export const ROUTES = [
     description: "SCTC -> Mui Tsz Lam -> SCTC",
     mapCenter: { lat: 22.387, lng: 114.203 },
     path: [
-      { lat: 22.387, lng: 114.203 }, // SCTC
-      { lat: 22.393, lng: 114.233 }, // Mui Tsz Lam
-      { lat: 22.387, lng: 114.203 }  // Back to SCTC
+      { lat: 22.396810, lng: 114.201182 }, // SCTC
+      { lat: 22.392262, lng: 114.200203 }, // Sports Institute
+      { lat: 22.402756, lng: 114.213578 }, // Twin Bridge
+      { lat: 22.393101, lng: 114.233375 }, // Mui Tsz Lam
+      { lat: 22.402756, lng: 114.213578 }, // Twin Bridge
+      { lat: 22.392262, lng: 114.200203 }, // Sports Institute
+      { lat: 22.396810, lng: 114.201182 }  // Back to SCTC
     ],
     hasDrills: false,
     hasSprints: false
@@ -70,9 +81,16 @@ export const ROUTES = [
     description: "SCTC -> Mei Tin Estate, Tai Wai -> SCTC",
     mapCenter: { lat: 22.387, lng: 114.203 },
     path: [
-      { lat: 22.387, lng: 114.203 }, // SCTC
-      { lat: 22.376, lng: 114.169 }, // Mei Tin Estate
-      { lat: 22.387, lng: 114.203 }  // Back to SCTC
+      { lat: 22.396810, lng: 114.201182 }, // SCTC
+      { lat: 22.392262, lng: 114.200203 }, // Sports Institute
+      { lat: 22.386581, lng: 114.196925 },
+      { lat: 22.375873, lng: 114.168921 }, // Mei Tin Estate
+      { lat: 22.375738, lng: 114.180402 }, // Tai Wai Playground
+      { lat: 22.374616, lng: 114.182010 }, // Man Lai Court
+      { lat: 22.375524, lng: 114.185449 }, // The Riverpark
+      { lat: 22.383530, lng: 114.196446 }, // Wong Uk
+      { lat: 22.392262, lng: 114.200203 }, // Sports Institute
+      { lat: 22.396810, lng: 114.201182 }  // Back to SCTC
     ],
     hasDrills: false,
     hasSprints: false
@@ -84,9 +102,9 @@ export const ROUTES = [
     description: "Tsuen Wan West Station -> Tuen Mun Road Bus-Bus Interchange -> Tsuen Wan West Station",
     mapCenter: { lat: 22.370, lng: 114.117 },
     path: [
-      { lat: 22.370, lng: 114.117 }, // Tsuen Wan West
-      { lat: 22.382, lng: 114.077 }, // Tuen Mun Road Interchange
-      { lat: 22.370, lng: 114.117 }  // Back to Tsuen Wan West
+      { lat: 22.366813, lng: 114.110937 }, // Tsuen Wan West
+      { lat: 22.358562, lng: 114.018563 }, // Tuen Mun Road Interchange
+      { lat: 22.366813, lng: 114.110937 }  // Back to Tsuen Wan West
     ],
     hasDrills: false,
     hasSprints: false
@@ -98,9 +116,9 @@ export const ROUTES = [
     description: "Tsuen Wan West -> The Garden, Sham Tseng -> Tsuen Wan West",
     mapCenter: { lat: 22.370, lng: 114.117 },
     path: [
-      { lat: 22.370, lng: 114.117 }, // Tsuen Wan West
-      { lat: 22.365, lng: 114.064 }, // Sham Tseng
-      { lat: 22.370, lng: 114.117 }  // Back to Tsuen Wan West
+      { lat: 22.370812, lng: 114.107062 }, // Tsuen Wan West
+      { lat: 22.364562, lng: 114.064312 }, // Sham Tseng
+      { lat: 22.370812, lng: 114.107062 }  // Back to Tsuen Wan West
     ],
     hasDrills: false,
     hasSprints: false
