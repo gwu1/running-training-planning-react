@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/running-training-planning-react/static/css/main.f47ff2e3.css",
-    "main.js": "/running-training-planning-react/static/js/main.57a6105e.js",
+    "main.js": "/running-training-planning-react/static/js/main.5c756219.js",
     "static/js/453.ae3dbf4c.chunk.js": "/running-training-planning-react/static/js/453.ae3dbf4c.chunk.js",
     "static/media/background.jpg": "/running-training-planning-react/static/media/background.b517b7b6c0308419267d.jpg",
     "index.html": "/running-training-planning-react/index.html",
     "main.f47ff2e3.css.map": "/running-training-planning-react/static/css/main.f47ff2e3.css.map",
-    "main.57a6105e.js.map": "/running-training-planning-react/static/js/main.57a6105e.js.map",
+    "main.5c756219.js.map": "/running-training-planning-react/static/js/main.5c756219.js.map",
     "453.ae3dbf4c.chunk.js.map": "/running-training-planning-react/static/js/453.ae3dbf4c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f47ff2e3.css",
-    "static/js/main.57a6105e.js"
+    "static/js/main.5c756219.js"
   ]
 }
