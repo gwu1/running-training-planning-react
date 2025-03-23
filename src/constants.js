@@ -5,13 +5,13 @@ export const ROUTES = [
     distance: 7.5,
     description: "SCTC -> Sha Tin Sports Ground -> Twin Bridge -> SCTC",
     mapCenter: { lat: 22.387, lng: 114.203 },
-    path: [
-      { lat: 22.396810, lng: 114.201182 }, // SCTC
-      { lat: 22.392262, lng: 114.200203 }, // Sports Institute
-      { lat: 22.387512, lng: 114.197181 }, // Sports Ground
-      { lat: 22.402756, lng: 114.213578 }, // Twin Bridge
-      { lat: 22.392262, lng: 114.200203 }, // Sports Institute
-      { lat: 22.396810, lng: 114.201182 }  // Back to SCTC
+    placeIds: [
+      'ChIJIwFtYQAHBDQR7OpbhAX-Lxk', // SCTC
+      'ChIJlQoqOkgGBDQRqPGXEIDASAg', // Sports Institute
+      'ChIJydpABUwGBDQRQlaysskbm0M', // ST Sports Ground
+      'ChIJIxIxPAAHBDQRsPAnl9Yaq8I', // Twin Bridge
+      'ChIJlQoqOkgGBDQRqPGXEIDASAg', // Sports Institute
+      'ChIJIwFtYQAHBDQR7OpbhAX-Lxk', // SCTC
     ],
     hasDrills: true,
     hasSprints: true,
@@ -26,14 +26,14 @@ export const ROUTES = [
     distance: 10.3,
     description: "SCTC -> Ma On Shan Promenade -> SCTC",
     mapCenter: { lat: 22.387, lng: 114.203 },
-    path: [
-      { lat: 22.396810, lng: 114.201182 }, // SCTC
-      { lat: 22.392262, lng: 114.200203 }, // Sports Institute
-      { lat: 22.402756, lng: 114.213578 }, // Twin Bridge
-      { lat: 22.418101, lng: 114.223154 }, // Ma On Shan Promenade
-      { lat: 22.402756, lng: 114.213578 }, // Twin Bridge
-      { lat: 22.392262, lng: 114.200203 }, // Sports Institute
-      { lat: 22.396810, lng: 114.201182 }  // Back to SCTC
+    placeIds: [
+      'ChIJIwFtYQAHBDQR7OpbhAX-Lxk', // SCTC
+      'ChIJlQoqOkgGBDQRqPGXEIDASAg', // Sports Institute
+      'ChIJIxIxPAAHBDQRsPAnl9Yaq8I', // Twin Bridge
+      'ChIJ5XFTHWwJBDQRoMSg3xEXCQo', // Ma On Shan Promenade
+      'ChIJIxIxPAAHBDQRsPAnl9Yaq8I', // Twin Bridge
+      'ChIJlQoqOkgGBDQRqPGXEIDASAg', // Sports Institute
+      'ChIJIwFtYQAHBDQR7OpbhAX-Lxk', // SCTC
     ],
     hasDrills: false,
     hasSprints: false
@@ -44,14 +44,14 @@ export const ROUTES = [
     distance: 13.5,
     description: "SCTC -> Twin Bridge -> HK Science Park -> SCTC",
     mapCenter: { lat: 22.387, lng: 114.203 },
-    path: [
-      { lat: 22.396810, lng: 114.201182 }, // SCTC
-      { lat: 22.392262, lng: 114.200203 }, // Sports Institute
-      { lat: 22.402756, lng: 114.213578 }, // Twin Bridge
-      { lat: 22.429442, lng: 114.209777}, // Science Park
-      { lat: 22.402756, lng: 114.213578 }, // Twin Bridge
-      { lat: 22.392262, lng: 114.200203 }, // Sports Institute
-      { lat: 22.396810, lng: 114.201182 }  // Back to SCTC
+    placeIds: [
+      'ChIJIwFtYQAHBDQR7OpbhAX-Lxk', // SCTC
+      'ChIJlQoqOkgGBDQRqPGXEIDASAg', // Sports Institute
+      'ChIJIxIxPAAHBDQRsPAnl9Yaq8I', // Twin Bridge
+      'ChIJwQsVK5gJBDQRCRLZbQ8ixPw', // Pak Shek Kok Public Toilet
+      'ChIJIxIxPAAHBDQRsPAnl9Yaq8I', // Twin Bridge
+      'ChIJlQoqOkgGBDQRqPGXEIDASAg', // Sports Institute
+      'ChIJIwFtYQAHBDQR7OpbhAX-Lxk' // SCTC
     ],
     hasDrills: false,
     hasSprints: false
@@ -62,14 +62,14 @@ export const ROUTES = [
     distance: 12.3,
     description: "SCTC -> Mui Tsz Lam -> SCTC",
     mapCenter: { lat: 22.387, lng: 114.203 },
-    path: [
-      { lat: 22.396810, lng: 114.201182 }, // SCTC
-      { lat: 22.392262, lng: 114.200203 }, // Sports Institute
-      { lat: 22.402756, lng: 114.213578 }, // Twin Bridge
-      { lat: 22.393101, lng: 114.233375 }, // Mui Tsz Lam
-      { lat: 22.402756, lng: 114.213578 }, // Twin Bridge
-      { lat: 22.392262, lng: 114.200203 }, // Sports Institute
-      { lat: 22.396810, lng: 114.201182 }  // Back to SCTC
+    placeIds: [
+      'ChIJIwFtYQAHBDQR7OpbhAX-Lxk', // SCTC
+      'ChIJlQoqOkgGBDQRqPGXEIDASAg', // Sports Institute
+      'ChIJIxIxPAAHBDQRsPAnl9Yaq8I', // Twin Bridge
+      'ChIJM7vCqJMHBDQRwlSmZCWi4Ww', // Mui Tsz Lam
+      'ChIJIxIxPAAHBDQRsPAnl9Yaq8I', // Twin Bridge
+      'ChIJlQoqOkgGBDQRqPGXEIDASAg', // Sports Institute
+      'ChIJIwFtYQAHBDQR7OpbhAX-Lxk' // SCTC
     ],
     hasDrills: false,
     hasSprints: false
@@ -80,17 +80,18 @@ export const ROUTES = [
     distance: 11.4,
     description: "SCTC -> Mei Tin Estate, Tai Wai -> SCTC",
     mapCenter: { lat: 22.387, lng: 114.203 },
-    path: [
-      { lat: 22.396810, lng: 114.201182 }, // SCTC
-      { lat: 22.392262, lng: 114.200203 }, // Sports Institute
-      { lat: 22.386581, lng: 114.196925 },
-      { lat: 22.375873, lng: 114.168921 }, // Mei Tin Estate
-      { lat: 22.375738, lng: 114.180402 }, // Tai Wai Playground
-      { lat: 22.374616, lng: 114.182010 }, // Man Lai Court
-      { lat: 22.375524, lng: 114.185449 }, // The Riverpark
-      { lat: 22.383530, lng: 114.196446 }, // Wong Uk
-      { lat: 22.392262, lng: 114.200203 }, // Sports Institute
-      { lat: 22.396810, lng: 114.201182 }  // Back to SCTC
+    placeIds: [
+      'ChIJIwFtYQAHBDQR7OpbhAX-Lxk', // SCTC
+      'ChIJlQoqOkgGBDQRqPGXEIDASAg', // Sports Institute
+      'ChIJt8O8v6wHBDQR0dggV_lHcoY', // Sha Tin Park
+      'ChIJ1wtuR2oHBDQRbJY-fJIVw6Q', // Mei Tin Estate
+      'ChIJeQ1U748HBDQRzL6P4pBZltA', // Tai Wai River Garden
+      'ChIJmbajCKgHBDQRvMZOm2zRGNc', // Tai Wai Playground
+      'ChIJt-jrPKgHBDQRDh4Wpc7-Vk8', // Man Lai Court
+      'ChIJD4gUsqsHBDQROIh3dvd9d88', // Hong Kong Bible Research and Education Center
+      'ChIJEZ0aoY4HBDQRNKH7t4xTujo', //Lek Yuen Bridge Pavilion
+      'ChIJlQoqOkgGBDQRqPGXEIDASAg', // Sports Institute
+      'ChIJIwFtYQAHBDQR7OpbhAX-Lxk' // SCTC
     ],
     hasDrills: false,
     hasSprints: false
@@ -101,10 +102,10 @@ export const ROUTES = [
     distance: 22.4,
     description: "Tsuen Wan West Station -> Tuen Mun Road Bus-Bus Interchange -> Tsuen Wan West Station",
     mapCenter: { lat: 22.370, lng: 114.117 },
-    path: [
-      { lat: 22.366813, lng: 114.110937 }, // Tsuen Wan West
-      { lat: 22.358562, lng: 114.018563 }, // Tuen Mun Road Interchange
-      { lat: 22.366813, lng: 114.110937 }  // Back to Tsuen Wan West
+    placeIds: [
+      'ChIJHXJmwAb5AzQR1WHJ-QBRa30', // Tsuen Wan Ferry Pier
+      'ChIJr6yHZYn7AzQRWmbrI-KsJQs', // Tuen Mun Road Bus Interchange
+      'ChIJHXJmwAb5AzQR1WHJ-QBRa30' // Tsuen Wan Ferry Pier
     ],
     hasDrills: false,
     hasSprints: false
@@ -115,10 +116,10 @@ export const ROUTES = [
     distance: 11.7,
     description: "Tsuen Wan West -> The Garden, Sham Tseng -> Tsuen Wan West",
     mapCenter: { lat: 22.370, lng: 114.117 },
-    path: [
-      { lat: 22.370812, lng: 114.107062 }, // Tsuen Wan West
-      { lat: 22.364562, lng: 114.064312 }, // Sham Tseng
-      { lat: 22.370812, lng: 114.107062 }  // Back to Tsuen Wan West
+    placeIds: [
+      'ChIJMaokuZD5AzQRswKjUnSmUvM', // Hoi Hing Road Public Toilet
+      'ChIJQSwProv5AzQRKvEuGw4MQWk', // Sham Tsz Street
+      'ChIJMaokuZD5AzQRswKjUnSmUvM' // Hoi Hing Road Public Toilet
     ],
     hasDrills: false,
     hasSprints: false

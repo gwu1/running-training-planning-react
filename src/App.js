@@ -19,7 +19,6 @@ function App() {
   const [activeTab, setActiveTab] = useState('shaTin');
   const [mapEmbedUrl, setMapEmbedUrl] = useState('');
 
-
   // Set the app element for react-modal after the component mounts
   useEffect(() => {
     Modal.setAppElement('#root');
@@ -77,28 +76,32 @@ function App() {
         ${extraLinks}<br>
         <i>Power up your training in ${route.id <= 5 ? 'Sha Tin' : 'Tsuen Wan'}!</i>
       `,
-      mapCenter: route.mapCenter,
-      path: route.path,
+      mapCenter: route.mapCenter, // Optional, can be removed if not used
     });
 
-    // Construct the Google Maps Embed API URL
-    const start = route.path[0];
-    const end = route.path[route.path.length - 1];
-    const waypoints = route.path.slice(1, -1).map(point => `${point.lat},${point.lng}`).join('|');
-    const embedUrl = `https://www.google.com/maps/embed/v1/directions?key=${GOOGLE_MAPS_API_KEY}&origin=${start.lat},${start.lng}&destination=${end.lat},${end.lng}&waypoints=${waypoints}&mode=walking`;
-    setMapEmbedUrl(embedUrl);
+    // Construct the Google Maps Embed API URL using Place IDs
+    try {
+      const start = `place_id:${route.placeIds[0]}`; // First Place ID as origin
+      const end = `place_id:${route.placeIds[route.placeIds.length - 1]}`; // Last Place ID as destination
+      const waypoints = route.placeIds.slice(1, -1).map(placeId => `place_id:${placeId}`).join('|'); // Intermediate Place IDs as waypoints
+      const embedUrl = `https://www.google.com/maps/embed/v1/directions?key=${GOOGLE_MAPS_API_KEY}&origin=${start}&destination=${end}${waypoints ? `&waypoints=${waypoints}` : ''}&mode=walking`;
+      setMapEmbedUrl(embedUrl);
+    } catch (error) {
+      console.error('Error constructing map embed URL:', error);
+      setMapEmbedUrl(''); // Fallback to empty URL to avoid breaking the UI
+    }
   };
 
-    const handleShare = () => {
-      const url = `${window.location.origin}/?route=${selectedRoute}&pace_minutes=${paceMinutes}&pace_seconds=${paceSeconds}&sprint_sets=${sprintSets}`;
-      setShareUrl(url);
-      setIsShareOpen(true);
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(url).then(() => alert('Link copied to clipboard!')).catch(() => alert('Failed to copy link to clipboard.'));
-      } else {
-        alert('Clipboard API not supported. Please copy the URL manually.');
-      }
-    };
+  const handleShare = () => {
+    const url = `${window.location.origin}/?route=${selectedRoute}&pace_minutes=${paceMinutes}&pace_seconds=${paceSeconds}&sprint_sets=${sprintSets}`;
+    setShareUrl(url);
+    setIsShareOpen(true);
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(() => alert('Link copied to clipboard!')).catch(() => alert('Failed to copy link to clipboard.'));
+    } else {
+      alert('Clipboard API not supported. Please copy the URL manually.');
+    }
+  };
 
   return (
     <div className="App">
@@ -227,7 +230,7 @@ function App() {
         </Button>
       </div>
 
-      {result && mapEmbedUrl && (
+      {result && (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -236,14 +239,20 @@ function App() {
         >
           <Typography variant="h6" component="h2" gutterBottom>Workout Summary</Typography>
           <div dangerouslySetInnerHTML={{ __html: result.text }} />
-          <iframe
-            title="Route Map"
-            width="100%"
-            height="200"
-            style={{ border: 0, borderRadius: '8px', marginTop: '8px' }}
-            src={mapEmbedUrl}
-            allowFullScreen
-          />
+          {mapEmbedUrl ? (
+            <iframe
+              title="Route Map"
+              width="100%"
+              height="200"
+              style={{ border: 0, borderRadius: '8px', marginTop: '8px' }}
+              src={mapEmbedUrl}
+              allowFullScreen
+            />
+          ) : (
+            <Typography variant="body2" color="error">
+              Unable to load the route map. Please try again later.
+            </Typography>
+          )}
         </motion.div>
       )}
 
