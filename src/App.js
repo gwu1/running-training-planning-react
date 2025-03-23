@@ -19,6 +19,12 @@ function App() {
   const [activeTab, setActiveTab] = useState('shaTin');
   const [mapEmbedUrl, setMapEmbedUrl] = useState('');
 
+
+  // Set the app element for react-modal after the component mounts
+  useEffect(() => {
+    Modal.setAppElement('#root');
+  }, []);
+
   // Load URL parameters
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -83,12 +89,16 @@ function App() {
     setMapEmbedUrl(embedUrl);
   };
 
-  const handleShare = () => {
-    const url = `${window.location.origin}/?route=${selectedRoute}&pace_minutes=${paceMinutes}&pace_seconds=${paceSeconds}&sprint_sets=${sprintSets}`;
-    setShareUrl(url);
-    setIsShareOpen(true);
-    navigator.clipboard.writeText(url).then(() => alert('Link copied to clipboard!'));
-  };
+    const handleShare = () => {
+      const url = `${window.location.origin}/?route=${selectedRoute}&pace_minutes=${paceMinutes}&pace_seconds=${paceSeconds}&sprint_sets=${sprintSets}`;
+      setShareUrl(url);
+      setIsShareOpen(true);
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(() => alert('Link copied to clipboard!')).catch(() => alert('Failed to copy link to clipboard.'));
+      } else {
+        alert('Clipboard API not supported. Please copy the URL manually.');
+      }
+    };
 
   return (
     <div className="App">
@@ -247,7 +257,13 @@ function App() {
         <input type="text" value={shareUrl} readOnly />
         <QRCodeCanvas value={shareUrl} size={80} />
         <Button
-          onClick={() => navigator.clipboard.writeText(shareUrl).then(() => alert('Copied!'))}
+          onClick={() => {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(shareUrl).then(() => alert('Copied!')).catch(() => alert('Failed to copy!'));
+            } else {
+              alert('Clipboard API not supported. Please copy the URL manually.');
+            }
+          }}
           sx={{ mt: 1, mr: 1, fontSize: '0.85rem' }}
         >
           Copy
