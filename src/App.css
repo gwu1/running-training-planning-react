@@ -1,7 +1,43 @@
+/* Define theme variables */
+:root {
+  --background-color: #f0f4f8; /* Light mode background color */
+  --text-color: #333; /* Light mode text color */
+  --container-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(240, 248, 255, 0.95)); /* Light mode container background */
+  --container-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); /* Light mode shadow */
+  --selected-bg: #e3f2fd; /* Light mode selected route background */
+  --hover-bg: #f0f4f8; /* Light mode hover background */
+  --tab-color: #1976d2; /* Tab color (same in both themes for consistency) */
+  --tab-active-border: 2px solid #1976d2; /* Active tab border */
+  --route-icon-color: #1976d2; /* Route icon color */
+  --secondary-text-color: #666; /* Secondary text (e.g., distance) */
+  --link-color: #1976d2; /* Link color in light mode */
+  --share-modal-bg: #fff; /* Share modal background in light mode */
+  --title-color: #1976d2; /* Title color in light mode */
+  --overlay-bg: rgba(255, 255, 255, 0.8); /* Overlay background for toggle in light mode */
+}
+
+[data-theme="dark"] {
+  --background-color: #333; /* Dark mode background color */
+  --text-color: #e0e0e0; /* Dark mode text color (softer white for better readability) */
+  --container-bg: linear-gradient(135deg, rgba(50, 50, 50, 0.95), rgba(70, 70, 70, 0.95)); /* Dark mode container background */
+  --container-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); /* Dark mode shadow */
+  --selected-bg: #4a6fa5; /* Dark mode selected route background (darker blue) */
+  --hover-bg: #444; /* Dark mode hover background */
+  --tab-color: #90caf9; /* Slightly lighter blue for tabs in dark mode */
+  --tab-active-border: 2px solid #90caf9; /* Adjusted active tab border */
+  --route-icon-color: #90caf9; /* Adjusted route icon color */
+  --secondary-text-color: #bbb; /* Secondary text in dark mode */
+  --link-color: #90caf9; /* Link color in dark mode */
+  --share-modal-bg: #444; /* Share modal background in dark mode */
+  --title-color: #90caf9; /* Revert to original light blue in dark mode */
+  --overlay-bg: rgba(50, 50, 50, 0.8); /* Overlay background for toggle in dark mode */
+}
+
+/* Base styles for the app */
 .App {
   font-family: 'Roboto', Arial, sans-serif;
   padding: 10px;
-  background-image: url('/public/background.jpg');
+  background-image: url('/public/background.jpg'); /* Background image persists in both themes */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -9,27 +45,39 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #f0f4f8;
+  background-color: var(--background-color); /* Use background-color instead of background to preserve image */
+  color: var(--text-color);
 }
 
 .container {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(240, 248, 255, 0.95));
+  background: var(--container-bg);
   border-radius: 10px;
   padding: 12px;
   max-width: 450px;
   width: 100%;
   margin: 10px 0;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--container-shadow);
 }
 
 .result {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(240, 248, 255, 0.95));
+  background: var(--container-bg);
   padding: 12px;
   border-radius: 10px;
   max-width: 450px;
   width: 100%;
   margin: 10px 0;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--container-shadow);
+  color: var(--text-color); /* Ensure text in result is readable */
+}
+
+/* Style links in the workout summary */
+.result a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.result a:hover {
+  text-decoration: underline;
 }
 
 .tabs {
@@ -42,13 +90,13 @@
   padding: 6px 12px;
   cursor: pointer;
   font-size: 0.9rem;
-  color: #1976d2;
+  color: var(--tab-color);
   border-bottom: 2px solid transparent;
   transition: all 0.3s;
 }
 
 .tab.active {
-  border-bottom: 2px solid #1976d2;
+  border-bottom: var(--tab-active-border);
   font-weight: 600;
 }
 
@@ -65,21 +113,27 @@
   cursor: pointer;
   transition: background-color 0.2s;
   border-radius: 6px;
+  color: var(--text-color);
 }
 
 .route-item:hover {
-  background-color: #f0f4f8;
+  background-color: var(--hover-bg);
 }
 
 .route-item.selected {
-  background-color: #e3f2fd;
+  background-color: var(--selected-bg);
   font-weight: 500;
 }
 
 .route-icon {
   margin-right: 8px;
   font-size: 1rem;
-  color: #1976d2;
+  color: var(--route-icon-color);
+}
+
+/* Style the secondary text (distance) in the route list */
+.route-item span {
+  color: var(--secondary-text-color);
 }
 
 .input-container {
@@ -92,11 +146,12 @@
 
 .share-modal {
   padding: 12px;
-  background: #fff;
+  background: var(--share-modal-bg);
   border-radius: 10px;
   max-width: 320px;
   margin: 30px auto;
   text-align: center;
+  color: var(--text-color);
 }
 
 .share-modal input {
@@ -106,6 +161,8 @@
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 0.9rem;
+  background: var(--container-bg);
+  color: var(--text-color);
 }
 
 button {
@@ -123,14 +180,31 @@ button {
 
 h1 {
   font-weight: 700;
-  color: #1976d2;
+  color: var(--title-color); /* Use a separate variable for the title color */
   font-size: 1.5rem;
   margin-bottom: 8px;
+  display: flex;
+  align-items: center; /* Align the emoji with the text */
+}
+
+.title-emoji {
+  margin-right: 8px;
+  font-size: 1.5rem; /* Match the font size of the h1 */
 }
 
 h2 {
   font-weight: 500;
-  color: #333;
+  color: var(--text-color);
   font-size: 1.1rem;
   margin-bottom: 8px;
+}
+
+/* Toggle container with overlay */
+.toggle-container {
+  display: inline-flex;
+  align-items: center;
+  background: var(--overlay-bg);
+  padding: 4px 12px;
+  border-radius: 8px;
+  box-shadow: var(--container-shadow);
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Typography, Button, Select, MenuItem, FormControl, InputLabel } from '@mui/material';
+import { Typography, Button, Select, MenuItem, FormControl, InputLabel, Switch, FormControlLabel } from '@mui/material';
 import { motion } from 'framer-motion';
 import Modal from 'react-modal';
 import { QRCodeCanvas } from 'qrcode.react';
@@ -18,6 +18,11 @@ function App() {
   const [isShareOpen, setIsShareOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('shaTin');
   const [mapEmbedUrl, setMapEmbedUrl] = useState('');
+  const [theme, setTheme] = useState('light');
+
+  const toggleTheme = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light');
+  };
 
   // Set the app element for react-modal after the component mounts
   useEffect(() => {
@@ -76,19 +81,19 @@ function App() {
         ${extraLinks}<br>
         <i>Power up your training in ${route.id <= 5 ? 'Sha Tin' : 'Tsuen Wan'}!</i>
       `,
-      mapCenter: route.mapCenter, // Optional, can be removed if not used
+      mapCenter: route.mapCenter,
     });
 
     // Construct the Google Maps Embed API URL using Place IDs
     try {
-      const start = `place_id:${route.placeIds[0]}`; // First Place ID as origin
-      const end = `place_id:${route.placeIds[route.placeIds.length - 1]}`; // Last Place ID as destination
-      const waypoints = route.placeIds.slice(1, -1).map(placeId => `place_id:${placeId}`).join('|'); // Intermediate Place IDs as waypoints
+      const start = `place_id:${route.placeIds[0]}`;
+      const end = `place_id:${route.placeIds[route.placeIds.length - 1]}`;
+      const waypoints = route.placeIds.slice(1, -1).map(placeId => `place_id:${placeId}`).join('|');
       const embedUrl = `https://www.google.com/maps/embed/v1/directions?key=${GOOGLE_MAPS_API_KEY}&origin=${start}&destination=${end}${waypoints ? `&waypoints=${waypoints}` : ''}&mode=walking`;
       setMapEmbedUrl(embedUrl);
     } catch (error) {
       console.error('Error constructing map embed URL:', error);
-      setMapEmbedUrl(''); // Fallback to empty URL to avoid breaking the UI
+      setMapEmbedUrl('');
     }
   };
 
@@ -104,9 +109,9 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className="App" data-theme={theme}>
       <Typography variant="h5" component="h1" align="center" gutterBottom>
-        Running / Training Planning
+        <span className="title-emoji">🏃‍♂️</span> Running / Training Planning
       </Typography>
 
       <div className="container">
@@ -136,7 +141,7 @@ function App() {
             >
               <span className="route-icon">🏃</span>
               <Typography variant="body2">
-                {route.name} <span style={{ color: '#666' }}>({route.distance} km)</span>
+                {route.name} <span>({route.distance} km)</span>
               </Typography>
             </motion.li>
           ))}
@@ -157,7 +162,14 @@ function App() {
                   paddingRight: '24px !important',
                 },
                 '& .MuiInputBase-root': {
-                  backgroundColor: '#fff',
+                  backgroundColor: 'var(--container-bg)', // Match container background
+                  color: 'var(--text-color)',
+                },
+                '& .MuiInputLabel-root': {
+                  color: 'var(--text-color)',
+                },
+                '& .MuiOutlinedInput-notchedOutline': {
+                  borderColor: 'var(--text-color)',
                 },
               }}
             >
@@ -183,7 +195,14 @@ function App() {
                   paddingRight: '24px !important',
                 },
                 '& .MuiInputBase-root': {
-                  backgroundColor: '#fff',
+                  backgroundColor: 'var(--container-bg)',
+                  color: 'var(--text-color)',
+                },
+                '& .MuiInputLabel-root': {
+                  color: 'var(--text-color)',
+                },
+                '& .MuiOutlinedInput-notchedOutline': {
+                  borderColor: 'var(--text-color)',
                 },
               }}
             >
@@ -210,7 +229,14 @@ function App() {
                     paddingRight: '24px !important',
                   },
                   '& .MuiInputBase-root': {
-                    backgroundColor: '#fff',
+                    backgroundColor: 'var(--container-bg)',
+                    color: 'var(--text-color)',
+                  },
+                  '& .MuiInputLabel-root': {
+                    color: 'var(--text-color)',
+                  },
+                  '& .MuiOutlinedInput-notchedOutline': {
+                    borderColor: 'var(--text-color)',
                   },
                 }}
               >
@@ -279,6 +305,14 @@ function App() {
         </Button>
         <Button onClick={() => setIsShareOpen(false)} sx={{ mt: 1, fontSize: '0.85rem' }}>Close</Button>
       </Modal>
+
+      <div className="toggle-container">
+        <FormControlLabel
+          control={<Switch checked={theme === 'dark'} onChange={toggleTheme} />}
+          label={`Switch to ${theme === 'light' ? 'Dark' : 'Light'} Mode`}
+          sx={{ mt: 1, color: 'var(--text-color)' }}
+        />
+      </div>
     </div>
   );
 }
